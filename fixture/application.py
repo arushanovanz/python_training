@@ -3,6 +3,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.select import Select
 from contactproperties import ContactProperties
 from fixture.session import SessionHelper
+from fixture.group import GroupHelper
 
 class Application:
 
@@ -10,22 +11,7 @@ class Application:
           self.wd = WebDriver()
           self.wd.implicitly_wait(60)
           self.session = SessionHelper(self)
-
-      def is_alert_present(self):
-          try:
-              self.wd.switch_to.alert()
-          except NoAlertPresentException as e:
-              return False
-          return True
-
-      def open_home_page(self):
-           wd = self.wd
-           wd.get("http://localhost/addressbook/")
-
-      def open_groups_page(self):
-           wd = self.wd
-           # open group page
-           wd.find_element_by_link_text("groups").click()
+          self.group = GroupHelper(self)
 
       def create_new_contact(self, contactproperties):
           wd = self.wd
@@ -112,41 +98,18 @@ class Application:
           wd.find_element_by_xpath("//form[@name='theform']//textarea[@name='notes']").click()
           wd.find_element_by_xpath("//form[@name='theform']//input[@name='submit']").click()
 
-      def create_group(self, group):
-           wd = self.wd
-           self.open_groups_page()
-           # init group creation
-           wd.find_element_by_name("new").click()
-           # fill group firm
-           wd.find_element_by_name("group_name").click()
-           wd.find_element_by_name("group_name").clear()
-           wd.find_element_by_name("group_name").send_keys(group.name)
-           wd.find_element_by_name("group_header").click()
-           wd.find_element_by_name("group_header").clear()
-           wd.find_element_by_name("group_header").send_keys(group.header)
-           wd.find_element_by_name("group_footer").clear()
-           wd.find_element_by_name("group_footer").send_keys(group.footer)
-           # submit group creation
-           wd.find_element_by_name("submit").click()
 
       def tearDown(self):
           self.wd.quit()
-
-
-      def return_to_groups_page(self):
-          wd = self.wd
-          # return to group page
-          wd.find_element_by_link_text("group page").click()
 
       def return_to_home_page(self):
           wd = self.wd
           # return to home page
           wd.find_element_by_link_text("home page").click()
 
-      def setUp(self):
-          wd = self.wd
-          self.wd =WebDriver()
-          self.wd.implicitly_wait(60)
+      def open_home_page(self):
+           wd = self.wd
+           wd.get("http://localhost/addressbook/")
 
       def destroy(self):
           self.wd.quit()
