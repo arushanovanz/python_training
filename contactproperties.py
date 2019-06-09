@@ -1,3 +1,4 @@
+
 class ContactProperties:
 
     def __init__(self, firstname, middlename, lastname,nickname,photo,title,company,address,home,mobile,work,fax,
