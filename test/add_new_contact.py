@@ -2,7 +2,7 @@
 
 import pytest
 from contactproperties import ContactProperties
-from application import Application
+from fixture.application import Application
 
 #initialize fixture
 @pytest.fixture
