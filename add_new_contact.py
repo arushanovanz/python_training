@@ -99,6 +99,7 @@ class add_new_contact(unittest.TestCase):
             self.wd.implicitly_wait(30)
 
     def open_home_page(self, wd):
+
             wd.get("http://localhost/addressbook/")
 
     def return_to_home_page(self, wd):
@@ -141,7 +142,7 @@ class add_new_contact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         # photo path
-       # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
+        # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
         self.create_new_contact(wd, ContactProperties(firstname="Andrew", middlename="Ivanovich", lastname="Lobachev", nickname="green",
                                                           photo= "",title="Title1",
                                                           company="Company1",address= "Adress1 Company1",home="89779087650",mobile="89779087651",

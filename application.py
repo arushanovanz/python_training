@@ -1,10 +1,12 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.common.exceptions import NoAlertPresentException
+
+
 class Application:
 
       def __init__(self):
           self.wd = WebDriver()
-          self.wd.implicitly_wait(30)
+          self.wd.implicitly_wait(60)
 
       def is_alert_present(self):
           try:
@@ -17,12 +19,10 @@ class Application:
            wd = self.wd
            wd.get("http://localhost/addressbook/")
 
-
       def open_groups_page(self):
            wd = self.wd
            # open group page
            wd.find_element_by_link_text("groups").click()
-
 
       def create_group(self, group):
            wd = self.wd
@@ -43,34 +43,34 @@ class Application:
            self.return_to_groups_page()
 
       def login(self, username, password):
-         wd = self.wd
-         self.open_home_page()
-         # login
-         wd.find_element_by_name("user").click()
-         wd.find_element_by_name("user").clear()
-         wd.find_element_by_name("user").send_keys(username)
-         wd.find_element_by_name("pass").click()
-         wd.find_element_by_name("pass").clear()
-         wd.find_element_by_name("pass").send_keys(password)
-         wd.find_element_by_xpath("//input[@value='Login']").click()
+          wd = self.wd
+          self.open_home_page()
+          # login
+          wd.find_element_by_name("user").click()
+          wd.find_element_by_name("user").clear()
+          wd.find_element_by_name("user").send_keys(username)
+          wd.find_element_by_name("pass").click()
+          wd.find_element_by_name("pass").clear()
+          wd.find_element_by_name("pass").send_keys(password)
+          wd.find_element_by_xpath("//input[@value='Login']").click()
 
       def tearDown(self):
-         self.wd.quit()
+          self.wd.quit()
 
       def logout(self):
-         wd = self.wd
-         # logout
-         wd.find_element_by_link_text("Logout").click()
+          wd = self.wd
+          # logout
+          wd.find_element_by_link_text("Logout").click()
 
       def return_to_groups_page(self):
-        wd = self.wd
-        # return to group page
-        wd.find_element_by_link_text("group page").click()
+          wd = self.wd
+          # return to group page
+          wd.find_element_by_link_text("group page").click()
 
       def setUp(self):
-        wd = self.wd
-        self.wd =WebDriver()
-        self.wd.implicitly_wait(60)
+          wd = self.wd
+          self.wd =WebDriver()
+          self.wd.implicitly_wait(60)
 
       def destroy(self):
-         self.wd.quit()
+          self.wd.quit()
