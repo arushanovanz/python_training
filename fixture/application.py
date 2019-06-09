@@ -2,12 +2,14 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.select import Select
 from contactproperties import ContactProperties
+from fixture.session import SessionHelper
 
 class Application:
 
       def __init__(self):
           self.wd = WebDriver()
           self.wd.implicitly_wait(60)
+          self.session = SessionHelper(self)
 
       def is_alert_present(self):
           try:
@@ -126,27 +128,10 @@ class Application:
            wd.find_element_by_name("group_footer").send_keys(group.footer)
            # submit group creation
            wd.find_element_by_name("submit").click()
-           self.return_to_groups_page()
-
-      def login(self, username, password):
-          wd = self.wd
-          self.open_home_page()
-          # login
-          wd.find_element_by_name("user").click()
-          wd.find_element_by_name("user").clear()
-          wd.find_element_by_name("user").send_keys(username)
-          wd.find_element_by_name("pass").click()
-          wd.find_element_by_name("pass").clear()
-          wd.find_element_by_name("pass").send_keys(password)
-          wd.find_element_by_xpath("//input[@value='Login']").click()
 
       def tearDown(self):
           self.wd.quit()
 
-      def logout(self):
-          wd = self.wd
-          # logout
-          wd.find_element_by_link_text("Logout").click()
 
       def return_to_groups_page(self):
           wd = self.wd
