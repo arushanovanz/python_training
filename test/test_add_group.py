@@ -2,6 +2,7 @@
 from model.group import Group
 import pytest
 from fixture.application import Application
+from fixture.initialization import Initialization
 
 
 # initialize fixture
@@ -12,6 +13,7 @@ def app(request):
     return fixture
 
 def test_add_group(app):
+
     app.session.login( username = "admin",password="secret")
     app.group.create(Group(name="yfpdfybt uhes",header="header",footer="yjdfz uhef 1"))
     app.session.logout()
