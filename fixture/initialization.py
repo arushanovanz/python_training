@@ -5,7 +5,7 @@ from fixture.contact import ContactHelper
 
 class Initialization:
 
-    def __init__(self,session,group,contact):
+    def __init__(self):
         self.session = SessionHelper
         self.group = GroupHelper
         self.contact = ContactHelper
