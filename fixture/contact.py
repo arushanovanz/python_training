@@ -89,3 +89,7 @@ class ContactHelper:
         wd.find_element_by_name("notes").send_keys(contactproperties.notes)
         wd.find_element_by_xpath("//form[@name='theform']//textarea[@name='notes']").click()
         wd.find_element_by_xpath("//form[@name='theform']//input[@name='submit']").click()
+
+    def delete(self):
+        wd = self.app.wd
+        wd.find_element_by_name("searchform").click()
