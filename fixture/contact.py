@@ -90,9 +90,10 @@ class ContactHelper:
         wd.find_element_by_xpath("//form[@name='theform']//textarea[@name='notes']").click()
         wd.find_element_by_xpath("//form[@name='theform']//input[@name='submit']").click()
 
-    def delete(self):
+    def delete_first_contact(self):
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
         # submit deletion
-        wd.find_element_by_xpath("Delete").click()
+        wd.find_element_by_xpath("//div[contains(@class,'left')]//input[contains(@onclick, 'DeleteSel()')]").click()
     # self.return_to_groups_page()
+        wd.switch_to_alert().accept()
