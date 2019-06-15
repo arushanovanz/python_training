@@ -92,4 +92,7 @@ class ContactHelper:
 
     def delete(self):
         wd = self.app.wd
-        wd.find_element_by_name("searchform").click()
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("Delete").click()
+    # self.return_to_groups_page()
