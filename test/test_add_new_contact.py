@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import pytest
+#import pytest
 from model.contactproperties import ContactProperties
-from fixture.application import Application
+#from fixture.application import Application
 
 #initialize fixture
-@pytest.fixture
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    return fixture
+#@pytest.fixture
+#def app(request):
+ #   fixture = Application()
+  #  request.addfinalizer(fixture.destroy)
+   # return fixture
 
 def test_add_new_contact(app):
     app.session.login( username="admin", password="secret")
@@ -22,5 +22,5 @@ def test_add_new_contact(app):
                                                       email3="andrew3@tt.ru",homepage="andrew.tt.ru",address2="Secondary Adress",
                                                       phone2="Secondary Home",notes="some new notes",ayear="1994",amonth="January",aday ="1",
                                                       byear="1995",bmonth="November",bday="16"))
-    app.return_to_home_page()
+ #   app.return_to_home_page()
     app.session.logout()
