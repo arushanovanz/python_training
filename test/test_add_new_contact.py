@@ -3,7 +3,6 @@
 from model.contactproperties import ContactProperties
 
 def test_add_new_contact(app):
-    app.session.login( username="admin", password="secret")
     # photo path
     # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
     app.contact.create(ContactProperties(firstname="Andrew", middlename="Ivanovich", lastname="Lobachev", nickname="green",
@@ -13,5 +12,4 @@ def test_add_new_contact(app):
                                                       email3="andrew3@tt.ru",homepage="andrew.tt.ru",address2="Secondary Adress",
                                                       phone2="Secondary Home",notes="some new notes",ayear="1994",amonth="January",aday ="1",
                                                       byear="1995",bmonth="November",bday="16"))
- #   app.return_to_home_page()
-    app.session.logout()
+
