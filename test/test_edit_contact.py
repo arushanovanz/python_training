@@ -25,3 +25,11 @@ def test_edit_contact(app):
                                                       byear="2001",bmonth="June",bday="17"))
  #   app.return_to_home_page()
     app.session.logout()
+
+def test_edit_contact_firstname(app):
+    app.session.login(username="admin", password="secret")
+    # photo path
+    # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
+    app.contact.edit_first_contact(ContactProperties(firstname="Brown"))
+    #   app.return_to_home_page()
+    app.session.logout()
