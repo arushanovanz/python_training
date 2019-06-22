@@ -87,3 +87,7 @@ class ContactHelper:
         self.fill_contact_form(new_contactproperties_data)
         # submit edit contact
         wd.find_element_by_xpath("// form // input[ @ name = 'update']").click()
+
+    def count(self):
+        wd = self.app.wd
+        return len(wd.find_elements_by_name("selected[]"))
