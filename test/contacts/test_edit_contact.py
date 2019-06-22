@@ -22,12 +22,13 @@ def test_edit_contact(app):
                                                       notes=" some new notes ver 2",
                                                       ayear="1999",amonth="February",aday ="5",
                                                       byear="2001",bmonth="June",bday="17"))
- #   app.return_to_home_page()
+
 
 
 # дорабоать пустые поля для ввода дат
-# def test_edit_contact_firstname(app):
-#     app.session.login(username="admin", password="secret")
-#     # photo path
-#     # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
-#     app.contact.edit_first_contact(ContactProperties(firstname="Brown"))
+def test_edit_contact_firstname(app):
+    # photo path
+    # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')
+    app.contact.edit_first_contact(ContactProperties(firstname="Brown",
+                                                      ayear="1999",amonth="February",aday ="5",
+                                                      byear="2001",bmonth="June",bday="17"))
