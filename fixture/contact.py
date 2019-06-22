@@ -40,37 +40,28 @@ class ContactHelper:
         self.change_field_value("homepage", contactproperties.homepage)
         self.change_field_value("address2", contactproperties.address2)
         self.change_field_value("notes", contactproperties.notes)
-
-        #     wd.find_element_by_name("photo").click()
-        #     wd.find_element_by_name("photo").clear()
+        #    wd.find_element_by_name("photo").click()
+        #    wd.find_element_by_name("photo").clear()
         #    wd.find_element_by_name("photo").send_keys(contactproperties.photo)
 
         # edit birthday
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_visible_text(contactproperties.bday)
-        # wd.find_element_by_xpath("//select[@name='bday']").click()
 
         wd.find_element_by_name("bmonth").click()
         Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contactproperties.bmonth)
-        # wd.find_element_by_xpath("//select[@name='bmonth']").click()
 
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").send_keys(contactproperties.byear)
-        # wd.find_element_by_xpath("//input[@name='byear']").click()
 
         wd.find_element_by_name("aday").click()
         Select(wd.find_element_by_name("aday")).select_by_visible_text(contactproperties.aday)
-        # wd.find_element_by_xpath("//select[@name='aday']").click()
 
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(contactproperties.amonth)
-        # wd.find_element_by_xpath("//select[@name='amonth']").click()
 
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").send_keys(contactproperties.ayear)
-        # wd.find_element_by_xpath("//input[@name='ayear']").click()
-
-
 
     def delete_first_contact(self):
         wd = self.app.wd
