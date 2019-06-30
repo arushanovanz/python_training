@@ -21,6 +21,7 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(contactproperties)
         wd.find_element_by_xpath("//form[@name='theform']//input[@name='submit']").click()
+        self.contact_cash = None
 
     def fill_contact_form(self, contactproperties):
         wd = self.app.wd
@@ -73,6 +74,7 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         wd.find_element_by_css_selector("div.msgbox")
         self.return_to_home_page()
+        self.contact_cash = None
 
     def edit_first_contact(self,new_contactproperties_data):
         wd = self.app.wd
@@ -83,6 +85,7 @@ class ContactHelper:
         self.fill_contact_form(new_contactproperties_data)
         # submit edit contact
         wd.find_element_by_xpath("//form//input[@name='update']").click()
+        self.contact_cash = None
 
     def count(self):
         wd = self.app.wd
@@ -92,14 +95,17 @@ class ContactHelper:
         wd = self.app.wd
         wd.get("http://localhost/addressbook/")
 
+    contact_cash = None
+
     def get_contact_list(self):
-        wd = self.app.wd
-        self.return_to_home_page()
-        contacts = []
-        for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-            container = wd.find_elements_by_tag_name('td')
-            lastname = container[1].text
-            firstname = container[2].text
-            id = container[0].find_element_by_name("selected[]").get_attribute ("value")
-            contacts.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
-        return contacts
+       if  self.contact_cash is None:
+           wd = self.app.wd
+           self.return_to_home_page()
+           self.contact_cash = []
+           for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
+               container = wd.find_elements_by_tag_name('td')
+               lastname = container[1].text
+               firstname = container[2].text
+               id = container[0].find_element_by_name("selected[]").get_attribute ("value")
+               self.contact_cash.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
+       return list(self.contact_cash)
