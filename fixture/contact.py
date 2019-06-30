@@ -1,4 +1,5 @@
 from selenium.webdriver.support.select import Select
+from model.contactproperties import ContactProperties
 
 class ContactHelper:
 
@@ -70,6 +71,8 @@ class ContactHelper:
         # submit deletion
         wd.find_element_by_xpath("//div[contains(@class,'left')]//input[contains(@onclick, 'DeleteSel()')]").click()
         wd.switch_to_alert().accept()
+        wd.find_element_by_css_selector("div.msgbox")
+        self.return_to_home_page()
 
     def edit_first_contact(self,new_contactproperties_data):
         wd = self.app.wd
@@ -79,7 +82,7 @@ class ContactHelper:
         # edit contact firm
         self.fill_contact_form(new_contactproperties_data)
         # submit edit contact
-        wd.find_element_by_xpath("// form // input[ @ name = 'update']").click()
+        wd.find_element_by_xpath("//form//input[@name='update']").click()
 
     def count(self):
         wd = self.app.wd
@@ -88,3 +91,15 @@ class ContactHelper:
     def return_to_home_page(self):
         wd = self.app.wd
         wd.get("http://localhost/addressbook/")
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.return_to_home_page()
+        contacts = []
+        for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
+            container = wd.find_elements_by_tag_name('td')
+            lastname = container[1].text
+            firstname = container[2].text
+            id = container[0].find_element_by_name("selected[]").get_attribute ("value")
+            contacts.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
+        return contacts
