@@ -103,10 +103,10 @@ class ContactHelper:
            wd = self.app.wd
            self.return_to_home_page()
            self.contact_cash = []
-           for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-               container = wd.find_elements_by_tag_name('td')
+           for wd.element in wd.find_elements_by_xpath("//tr[@name='entry']"):
+               container = wd.element.find_elements_by_tag_name('td')
                lastname = container[1].text
                firstname = container[2].text
-               id = container[0].find_element_by_name("selected[]").get_attribute ("value")
+               id = container[0].find_element_by_name("selected[]").get_attribute("value")
                self.contact_cash.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
        return list(self.contact_cash)

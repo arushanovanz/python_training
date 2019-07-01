@@ -46,13 +46,13 @@ def test_edit_contact(app):
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     old_contacts[0] = contact
-    #assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts,key=ContactProperties.id_or_max)
+    assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts,key=ContactProperties.id_or_max)
 
 
 # дорабоать пустые поля для ввода дат
 def test_edit_contact_firstname(app):
     old_contacts = app.contact.get_contact_list()
-    contact= ContactProperties(firstname="Brown",
+    contact= ContactProperties(firstname="Brown",lastname="Brown New",
                       ayear="1999", amonth="February", aday="5",
                       byear="2001", bmonth="June", bday="17")
     contact.id = old_contacts[0].id
@@ -60,4 +60,4 @@ def test_edit_contact_firstname(app):
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     old_contacts[0] = contact
-    #assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts, key=ContactProperties.id_or_max)
+    assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts, key=ContactProperties.id_or_max)
