@@ -93,7 +93,8 @@ class ContactHelper:
 
     def return_to_home_page(self):
         wd = self.app.wd
-        if not (wd.current_url.endswith("/addressbook/") or wd.current_url.endswith("/addressbook/index.php")):
+        if not (wd.current_url.endswith("/addressbook/") or wd.current_url.endswith("/addressbook/index.php")
+                or wd.find_elements_by_xpath("//div//input[contains(@title, 'Search for any text')]")):
            wd.get("http://localhost/addressbook/")
 
     contact_cash = None
