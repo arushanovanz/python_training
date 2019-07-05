@@ -1,4 +1,5 @@
 from model.contactproperties import ContactProperties
+from random import randrange
 
 def test_delete_contact(app):
     # photo path
@@ -24,7 +25,8 @@ def test_delete_contact(app):
                                                       ayear="1999",amonth="February",aday ="5",
                                                       byear="2001",bmonth="June",bday="17"))
     old_contacts = app.contact.get_contact_list()
-    app.contact.delete_first_contact()
+    index = randrange(len(old_contacts))
+    app.contact.delete_contact_by_index(index)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) - 1 == len(new_contacts)
     old_contacts[0:1] = []
