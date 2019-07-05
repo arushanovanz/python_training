@@ -1,4 +1,5 @@
 from model.contactproperties import ContactProperties
+from random import randrange
 
 def test_edit_contact(app):
     if app.contact.count() == 0:
@@ -42,7 +43,8 @@ def test_edit_contact(app):
                                                       ayear="2002",amonth="February",aday ="8",
                                                       byear="2004",bmonth="June",bday="16")
     contact.id = old_contacts[0].id
-    app.contact.edit_first_contact(contact)
+    index = randrange(len(old_contacts))
+    app.contact.edit_contact_by_index(contact,index)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     old_contacts[0] = contact
@@ -56,8 +58,24 @@ def test_edit_contact_firstname(app):
                       ayear="1999", amonth="February", aday="5",
                       byear="2001", bmonth="June", bday="17")
     contact.id = old_contacts[0].id
-    app.contact.edit_first_contact(contact)
+    index = randrange(len(old_contacts))
+    app.contact.edit_contact_by_index(contact,index)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     old_contacts[0] = contact
     assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts, key=ContactProperties.id_or_max)
+
+
+def test_edit_first_contact(app):
+    old_contacts = app.contact.get_contact_list()
+    contact = ContactProperties(firstname="Brown", lastname="Brown New",
+                                ayear="1999", amonth="February", aday="5",
+                                byear="2001", bmonth="June", bday="17")
+    contact.id = old_contacts[0].id
+    index = randrange(len(old_contacts))
+    app.contact.edit_contact_by_index(contact, 0)
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
+    old_contacts[0] = contact
+    assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts,
+                                                                           key=ContactProperties.id_or_max)

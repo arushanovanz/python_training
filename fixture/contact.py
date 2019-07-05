@@ -109,7 +109,7 @@ class ContactHelper:
         self.return_to_home_page()
         # find edit button
         self.select_contact_by_index(index)
-        wd.find_element_by_xpath("//a/img[contains(@title[1],'Edit')]")[index].click()
+        wd.find_element_by_xpath("//a/img[contains(@title[1],'Edit')]").click()
         # edit contact firm
         self.fill_contact_form(new_contactproperties_data)
         # submit edit contact
