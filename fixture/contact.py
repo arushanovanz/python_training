@@ -1,5 +1,6 @@
 from selenium.webdriver.support.select import Select
 from model.contactproperties import ContactProperties
+import re
 
 class ContactHelper:
 
@@ -146,6 +147,17 @@ class ContactHelper:
 
         return ContactProperties(firstname=firstname,lastname=lastname,id=id,
                                  homephone=homephone,workphone=workphone,mobilephone=mobilephone,
+                                 secondaryphone=secondaryphone)
+
+    def get_contact_from_view_page(self,index):
+        wd = self.app.wd
+        self.open_contact_view_by_index(index)
+        text = wd.find_element_by_id("content").text
+        homephone =re.search("H: (.*)",text).group(1)
+        workphone=re.search("W: (.*)",text).group(1)
+        mobilephone=re.search("M: (.*)",text).group(1)
+        secondaryphone=re.search("P: (.*)",text).group(1)
+        return ContactProperties(homephone=homephone, mobilephone=mobilephone,workphone=workphone,
                                  secondaryphone=secondaryphone)
 
     def open_contact_to_edit_by_index(self,index):
