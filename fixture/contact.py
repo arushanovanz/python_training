@@ -120,10 +120,10 @@ class ContactHelper:
            self.return_to_home_page()
            self.contact_cashe = []
            for row in wd.find_elements_by_xpath("//tr[@name='entry']"):
-               container = row.find_elements_by_tag_name('td')
+               container = row.find_elements_by_tag_name("td")
                lastname = container[1].text
                firstname = container[2].text
-               id = container[0].find_element_by_name("selected[]").get_attribute("value")
+               id = container[0].find_element_by_tag_name("input").get_attribute("value")
                all_phones = container[5].text.splitlines()
 
                self.contact_cashe.append (ContactProperties(lastname=lastname, firstname=firstname, id=id,
