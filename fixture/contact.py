@@ -136,13 +136,13 @@ class ContactHelper:
     def get_contact_info_from_edit_page(self,index):
         wd = self.app.wd
         self.open_contact_to_edit_by_index(index)
-        firstname = wd.find_element_by_name("firstname").get_attrribute("value")
-        lastname = wd.find_element_by_name("lastname").get_attrribute("value")
-        id = wd.find_element_by_name("id").get_attrribute("value")
-        homephone =wd.find_element_by_name("home").get_attrribute("value")
-        workphone= wd.find_element_by_name("work").get_attrribute("value")
-        mobilephone= wd.find_element_by_name("mobile").get_attrribute("value")
-        secondaryphone= wd.find_element_by_name("phone2").get_attrribute("value")
+        firstname = wd.find_element_by_name("firstname").get_attribute("value")
+        lastname = wd.find_element_by_name("lastname").get_attribute("value")
+        id = wd.find_element_by_name("id").get_attribute("value")
+        homephone =wd.find_element_by_name("home").get_attribute("value")
+        workphone= wd.find_element_by_name("work").get_attribute("value")
+        mobilephone= wd.find_element_by_name("mobile").get_attribute("value")
+        secondaryphone= wd.find_element_by_name("phone2").get_attribute("value")
 
         return ContactProperties(firstname=firstname,lastname=lastname,id=id,
                                  homephone=homephone,workphone=workphone,mobilephone=mobilephone,
@@ -153,12 +153,12 @@ class ContactHelper:
         self.app.open_home_page()
         row = wd.find_elements_by_name("entry")[index]
         cell = row.find_elements_by_tag_name("td")[7]
-        cell.find_element_by_tag("a").click()
+        cell.find_element_by_tag_name("a").click()
 
     def open_contact_view_by_index(self, index):
         wd = self.app.wd
         self.app.open_home_page()
         row = wd.find_elements_by_name("entry")[index]
         cell = row.find_elements_by_tag_name("td")[6]
-        cell.find_element_by_tag("a").click()
+        cell.find_element_by_tag_name("a").click()
 
