@@ -68,14 +68,6 @@ class ContactHelper:
     def delete_first_contact(self):
         wd = self.app.wd
         wd.delete_contact_by_index(0)
-        # self.return_to_home_page()
-        # wd.find_element_by_name("selected[]").click()
-        # # submit deletion
-        # wd.find_element_by_xpath("//div[contains(@class,'left')]//input[contains(@onclick, 'DeleteSel()')]").click()
-        # wd.switch_to_alert().accept()
-        # wd.find_element_by_css_selector("div.msgbox")
-        # self.return_to_home_page()
-        # self.contact_cash = None
 
     def select_contact_by_index(self,index):
         wd =self.app.wd
@@ -96,20 +88,12 @@ class ContactHelper:
         wd = self.app.wd
         self.return_to_home_page()
         self.edit_contact_by_index(0)
-        # # find edit button
-        # wd.find_element_by_xpath("//a/img[contains(@title[1],'Edit')]").click()
-        # # edit contact firm
-        # self.fill_contact_form(new_contactproperties_data)
-        # # submit edit contact
-        # wd.find_element_by_xpath("//form//input[@name='update']").click()
-        # self.contact_cash = None
 
     def edit_contact_by_index(self,new_contactproperties_data,index):
         wd = self.app.wd
         self.return_to_home_page()
         # find edit button
-        self.select_contact_by_index(index)
-        wd.find_element_by_xpath("//a/img[contains(@title[1],'Edit')]").click()
+        wd.find_elements_by_xpath("//a/img[contains(@title[1],'Edit')]")[index].click()
         # edit contact firm
         self.fill_contact_form(new_contactproperties_data)
         # submit edit contact
