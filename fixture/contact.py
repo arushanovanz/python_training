@@ -32,9 +32,9 @@ class ContactHelper:
         self.change_field_value("title", contactproperties.title)
         self.change_field_value("company", contactproperties.company)
         self.change_field_value("address", contactproperties.address)
-        self.change_field_value("home", contactproperties.home)
-        self.change_field_value("mobile", contactproperties.mobile)
-        self.change_field_value("work", contactproperties.work)
+        self.change_field_value("home", contactproperties.homephone)
+        self.change_field_value("mobile", contactproperties.mobilephone)
+        self.change_field_value("work", contactproperties.workphone)
         self.change_field_value("fax", contactproperties.fax)
         self.change_field_value("email", contactproperties.email)
         self.change_field_value("email2", contactproperties.email2)
@@ -42,6 +42,7 @@ class ContactHelper:
         self.change_field_value("homepage", contactproperties.homepage)
         self.change_field_value("address2", contactproperties.address2)
         self.change_field_value("notes", contactproperties.notes)
+        self.change_field_value("phone2",contactproperties.secondaryphone)
         #    wd.find_element_by_name("photo").click()
         #    wd.find_element_by_name("photo").clear()
         #    wd.find_element_by_name("photo").send_keys(contactproperties.photo)
@@ -114,14 +115,14 @@ class ContactHelper:
     contact_cash = None
 
     def get_contact_list(self):
-       if  self.contact_cash is None:
+       if  self.contact_cashe is None:
            wd = self.app.wd
            self.return_to_home_page()
-           self.contact_cash = []
+           self.contact_cashe = []
            for wd.element in wd.find_elements_by_xpath("//tr[@name='entry']"):
                container = wd.element.find_elements_by_tag_name('td')
                lastname = container[1].text
                firstname = container[2].text
                id = container[0].find_element_by_name("selected[]").get_attribute("value")
                self.contact_cash.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
-       return list(self.contact_cash)
+       return list(self.contact_cashe)
