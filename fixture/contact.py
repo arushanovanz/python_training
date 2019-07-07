@@ -112,17 +112,53 @@ class ContactHelper:
                 or wd.find_elements_by_xpath("//div//input[contains(@title, 'Search for any text')]")):
            wd.get("http://localhost/addressbook/")
 
-    contact_cash = None
+    contact_cashe = None
 
     def get_contact_list(self):
        if  self.contact_cashe is None:
            wd = self.app.wd
            self.return_to_home_page()
            self.contact_cashe = []
-           for wd.element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-               container = wd.element.find_elements_by_tag_name('td')
+           for row in wd.find_elements_by_xpath("//tr[@name='entry']"):
+               container = row.find_elements_by_tag_name('td')
                lastname = container[1].text
                firstname = container[2].text
                id = container[0].find_element_by_name("selected[]").get_attribute("value")
-               self.contact_cash.append (ContactProperties(lastname=lastname, firstname=firstname, id=id))
+               all_phones = container[5].text.splitlines()
+
+               self.contact_cashe.append (ContactProperties(lastname=lastname, firstname=firstname, id=id,
+                                                            homephone=all_phones[0],
+                                                            mobilephone=all_phones[1],
+                                                            workphone=all_phones[2],
+                                                            secondaryphone=all_phones[3]))
        return list(self.contact_cashe)
+
+    def get_contact_info_from_edit_page(self,index):
+        wd = self.app.wd
+        self.open_contact_to_edit_by_index(index)
+        firstname = wd.find_element_by_name("firstname").get_attrribute("value")
+        lastname = wd.find_element_by_name("lastname").get_attrribute("value")
+        id = wd.find_element_by_name("id").get_attrribute("value")
+        homephone =wd.find_element_by_name("home").get_attrribute("value")
+        workphone= wd.find_element_by_name("work").get_attrribute("value")
+        mobilephone= wd.find_element_by_name("mobile").get_attrribute("value")
+        secondaryphone= wd.find_element_by_name("phone2").get_attrribute("value")
+
+        return ContactProperties(firstname=firstname,lastname=lastname,id=id,
+                                 homephone=homephone,workphone=workphone,mobilephone=mobilephone,
+                                 secondaryphone=secondaryphone)
+
+    def open_contact_to_edit_by_index(self,index):
+        wd = self.app.wd
+        self.app.open_home_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[7]
+        cell.find_element_by_tag("a").click()
+
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.app.open_home_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag("a").click()
+
