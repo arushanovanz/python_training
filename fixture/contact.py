@@ -149,7 +149,7 @@ class ContactHelper:
         address = wd.find_element_by_name("address").get_attribute("value")
         email = wd.find_element_by_name("email").get_attribute("value")
         email2 = wd.find_element_by_name("email2").get_attribute("value")
-        email3 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email3").get_attribute("value")
         # homepage = wd.find_element_by_name("homepage").get_attribute("value")
 
         return ContactProperties(firstname=firstname,lastname=lastname,id=id,
