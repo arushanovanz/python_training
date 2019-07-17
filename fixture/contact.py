@@ -124,14 +124,15 @@ class ContactHelper:
                container = row.find_elements_by_tag_name("td")
                lastname = container[1].text
                firstname = container[2].text
+               address = container[3].text
+               all_emails =container[4].text
                id = container[0].find_element_by_tag_name("input").get_attribute("value")
-               all_phones = container[5].text.splitlines()
-
+               all_phones = container[5].text
+               # homepage = container[9].
                self.contact_cashe.append (ContactProperties(lastname=lastname, firstname=firstname, id=id,
-                                                            homephone=all_phones[0],
-                                                            mobilephone=all_phones[1],
-                                                            workphone=all_phones[2],
-                                                            secondaryphone=all_phones[3]))
+                                                            address = address,all_emails = all_emails,
+                                                            all_phones_from_home_page = all_phones))
+
        return list(self.contact_cashe)
 
     def get_contact_info_from_edit_page(self,index):
@@ -143,11 +144,20 @@ class ContactHelper:
         homephone =wd.find_element_by_name("home").get_attribute("value")
         workphone= wd.find_element_by_name("work").get_attribute("value")
         mobilephone= wd.find_element_by_name("mobile").get_attribute("value")
+        fax = wd.find_element_by_name("fax").get_attribute("value")
         secondaryphone= wd.find_element_by_name("phone2").get_attribute("value")
+        address = wd.find_element_by_name("address").get_attribute("value")
+        email = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email2").get_attribute("value")
+        # homepage = wd.find_element_by_name("homepage").get_attribute("value")
 
         return ContactProperties(firstname=firstname,lastname=lastname,id=id,
-                                 homephone=homephone,workphone=workphone,mobilephone=mobilephone,
-                                 secondaryphone=secondaryphone)
+                                 address =address,email=email,email2=email2,email3=email3,
+                                 homephone=homephone,mobilephone=mobilephone,workphone=workphone,
+                                 fax=fax, secondaryphone=secondaryphone,
+                                 # homepage=homepage
+                                 )
 
     def get_contact_from_view_page(self,index):
         wd = self.app.wd
@@ -156,8 +166,10 @@ class ContactHelper:
         homephone =re.search("H: (.*)",text).group(1)
         workphone=re.search("W: (.*)",text).group(1)
         mobilephone=re.search("M: (.*)",text).group(1)
-        secondaryphone=re.search("P: (.*)",text).group(1)
+        # fax=re.search("F: (.*)",text).group(1)
+        secondaryphone = re.search("P: (.*)", text).group(1)
         return ContactProperties(homephone=homephone, mobilephone=mobilephone,workphone=workphone,
+                                 # fax=fax,
                                  secondaryphone=secondaryphone)
 
     def open_contact_to_edit_by_index(self,index):
