@@ -37,7 +37,12 @@ class ContactProperties:
         self.all_emails =all_emails
 
     def __repr__(self):
-         return "%s:%s:%s" % (self.id, self.firstname, self.lastname)
+         return "%s:%s:%s:%s:%s:%s:%s:%s:%s:%s:%s" % (self.id, self.firstname,self.middlename,self.email, self.lastname,
+                                             self.aday, self.amonth,self.ayear,
+                                             self.bday,self.bmonth,self.byear)
+
+
+
 
     def __eq__(self, other):
          return (self.id is None or other.id is None or self.id == other.id)\
