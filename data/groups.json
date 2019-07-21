@@ -1,37 +1,79 @@
 [
   {
-    "py/object": "model.contactproperties.ContactProperties",
-    "aday": 17,
-    "address": "address AFUO6BuCc54qYJA6F5oJWgqq  ",
-    "address2": "address2RHA8lS Q VfCQv9o3 b",
-    "all_emails": null,
-    "all_phones_from_home_page": null,
-    "amonth": "September",
-    "ayear": 1954,
-    "bday": 23,
-    "bmonth": "December",
-    "byear": 2000,
-    "company": "companyJp ejsXQVyTy2",
-    "email": "email@dR Fu7",
-    "email2": "email@qFz",
-    "email3": "email@1s yijk ",
-    "fax": "^>$/$'",
-    "firstname": {
-      "py/tuple": [
-        "firstnamei"
-      ]
-    },
-    "homepage": "http://5HcBK0o",
-    "homephone": "8{2</;}",
+    "py/object": "model.group.Group",
+    "footer": "",
+    "header": "",
     "id": null,
-    "lastname": "lastname4 O",
-    "middlename": "middlenameSYEW2 yZ V E HZnUW",
-    "mobilephone": "(>-|&_;4",
-    "nickname": "nicknamevr",
-    "notes": "NotesWHG Q9xPFxTt14JsQyeeihar5 Nz 3opr Y S6",
-    "photo": "",
-    "secondaryphone": "(`_7-",
-    "title": "title5YDPa",
-    "workphone": "._8}?3"
+    "name": ""
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footeruS%T pEXd",
+    "header": "headerq%\\:Vc5#yCaP[} `4A{",
+    "id": null,
+    "name": "name.=Q`"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footer`^@:y UN",
+    "header": "header&.p-sPf$SFR^I}uPfh",
+    "id": null,
+    "name": "name"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footer?c:6n78bw",
+    "header": "headery!'Uz?a",
+    "id": null,
+    "name": "nameflH"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footerzf`:! Lkx nD (I%x",
+    "header": "header(j9o",
+    "id": null,
+    "name": "nameS`fz35` +"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footerL# u)SXsXe ",
+    "header": "headerkHGKV [WcKirtwof",
+    "id": null,
+    "name": "nameia"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footera9XX~3Vf",
+    "header": "headeru  m j.c)j_n- K",
+    "id": null,
+    "name": "name "
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footer[RSV [U*B",
+    "header": "header>XJnAo8_L#]n",
+    "id": null,
+    "name": "name"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footerB.}R|: } (=\"0",
+    "header": "header.$G**{$]R -",
+    "id": null,
+    "name": "nameD}hZ<P|f "
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footerg=bZKBb@l",
+    "header": "headerY2.]\\",
+    "id": null,
+    "name": "name<\\G"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footer9^@[K",
+    "header": "headerZm e%o\"",
+    "id": null,
+    "name": "name4._ G"
   }
 ]
