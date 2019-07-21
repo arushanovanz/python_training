@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-import pytest
-import random
-import string
+
 from model.contactproperties import ContactProperties
 
 
-@pytest.mark.parametrize("contact",testdata, ids=[repr (x)for x in testdata])
+
 def test_add_new_contact(app,contact):
     # photo path
     # # p= os.path.abspath('C:\Users\hh\Pictures\Git.jpeg')

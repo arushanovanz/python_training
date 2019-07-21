@@ -1,79 +1,37 @@
 [
   {
-    "py/object": "model.group.Group",
-    "footer": "",
-    "header": "",
+    "py/object": "model.contactproperties.ContactProperties",
+    "aday": 17,
+    "address": "address AFUO6BuCc54qYJA6F5oJWgqq  ",
+    "address2": "address2RHA8lS Q VfCQv9o3 b",
+    "all_emails": null,
+    "all_phones_from_home_page": null,
+    "amonth": "September",
+    "ayear": 1954,
+    "bday": 23,
+    "bmonth": "December",
+    "byear": 2000,
+    "company": "companyJp ejsXQVyTy2",
+    "email": "email@dR Fu7",
+    "email2": "email@qFz",
+    "email3": "email@1s yijk ",
+    "fax": "^>$/$'",
+    "firstname": {
+      "py/tuple": [
+        "firstnamei"
+      ]
+    },
+    "homepage": "http://5HcBK0o",
+    "homephone": "8{2</;}",
     "id": null,
-    "name": ""
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footerB! EW u%^\"",
-    "header": "headerZ\\.k2tsrfj1jHN",
-    "id": null,
-    "name": "nameo4. FH+ "
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footerY",
-    "header": "headerVn;|CHF",
-    "id": null,
-    "name": "namey#)BT"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer  N5HS6wykXMZz/&;",
-    "header": "header C5r  <h2jy",
-    "id": null,
-    "name": "name>`)=-aKj"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer=L!",
-    "header": "headerE ",
-    "id": null,
-    "name": "nameuN,v"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer.?<Eb \\mk1P 4n-~D3",
-    "header": "header/ls3[Tmfy",
-    "id": null,
-    "name": "name dLDB v@K"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footerN)",
-    "header": "headerf6",
-    "id": null,
-    "name": "named3/"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer=~JS~H5_5Py$t}YwUS ",
-    "header": "headerxs",
-    "id": null,
-    "name": "nameQ.~f!"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer ckN}J^ .f6< R",
-    "header": "headerQe@u(Sd",
-    "id": null,
-    "name": "name[8pea"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footerzW/%PY   ",
-    "header": "headerwUs_YY&|}K\"u.SNNs p",
-    "id": null,
-    "name": "nameP"
-  },
-  {
-    "py/object": "model.group.Group",
-    "footer": "footer_2[  *",
-    "header": "headerj:",
-    "id": null,
-    "name": "name4>_\\>\"3w~"
+    "lastname": "lastname4 O",
+    "middlename": "middlenameSYEW2 yZ V E HZnUW",
+    "mobilephone": "(>-|&_;4",
+    "nickname": "nicknamevr",
+    "notes": "NotesWHG Q9xPFxTt14JsQyeeihar5 Nz 3opr Y S6",
+    "photo": "",
+    "secondaryphone": "(`_7-",
+    "title": "title5YDPa",
+    "workphone": "._8}?3"
   }
 ]
