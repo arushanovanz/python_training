@@ -50,7 +50,7 @@ class ContactHelper:
 
         # edit birthday
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(contactproperties.bday)
+        Select(wd.find_element_by_name("bday")).select_by_value(str(contactproperties.bday))
 
         wd.find_element_by_name("bmonth").click()
         Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contactproperties.bmonth)
@@ -59,7 +59,7 @@ class ContactHelper:
         wd.find_element_by_name("byear").send_keys(contactproperties.byear)
 
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(contactproperties.aday)
+        Select(wd.find_element_by_name("aday")).select_by_visible_text(str(contactproperties.aday))
 
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(contactproperties.amonth)
