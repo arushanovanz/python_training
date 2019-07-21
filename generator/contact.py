@@ -12,7 +12,7 @@ except getopt.GetoptError as err:
     getopt.usage()
     sys.exit(2)
 
-n= 5
+n= 1
 f= "data/contacts.json"
 
 for o, a in opts:
@@ -32,7 +32,8 @@ def random_month():
     return random.choice(months)
 
 def random_phones(prefix,maxlen):
-    symbols =  string.digits + string.punctuation
+    symbols =  string.digits
+    # + string.punctuation
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 
