@@ -53,16 +53,16 @@ class ContactHelper:
         Select(wd.find_element_by_name("bday")).select_by_value(str(contactproperties.bday))
 
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contactproperties.bmonth)
+        Select(wd.find_element_by_name("bmonth")).select_by_value(contactproperties.bmonth)
 
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").send_keys(contactproperties.byear)
 
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(str(contactproperties.aday))
+        Select(wd.find_element_by_name("aday")).select_by_value(str(contactproperties.aday))
 
         wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text(contactproperties.amonth)
+        Select(wd.find_element_by_name("amonth")).select_by_value(contactproperties.amonth)
 
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").send_keys(contactproperties.ayear)
