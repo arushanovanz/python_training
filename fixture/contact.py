@@ -117,6 +117,18 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cash = None
 
+    def edit_contact_by_id(self,id,new_contactproperties_data):
+        wd = self.app.wd
+        self.return_to_home_page()
+        #click button edit on random contact
+        row = wd.find_element_by_xpath("//tr[@name='entry']/td/input[@value='%s']/../.."%id)
+        container = row.find_elements_by_tag_name("td")[7]
+        container.find_element_by_tag_name("a").click()
+        self.fill_contact_form(new_contactproperties_data)
+        # submit edit contact
+        wd.find_element_by_xpath("//form//input[@name='update']").click()
+        self.contact_cash = None
+
     def count(self):
         wd = self.app.wd
         return len(wd.find_elements_by_name("selected[]"))
