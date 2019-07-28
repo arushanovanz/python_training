@@ -51,19 +51,14 @@ class ContactHelper:
         # edit birthday
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_value(str(contactproperties.bday))
-
         wd.find_element_by_name("bmonth").click()
         Select(wd.find_element_by_name("bmonth")).select_by_value(contactproperties.bmonth)
-
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").send_keys(contactproperties.byear)
-
         wd.find_element_by_name("aday").click()
         Select(wd.find_element_by_name("aday")).select_by_value(str(contactproperties.aday))
-
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_value(contactproperties.amonth)
-
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").send_keys(contactproperties.ayear)
 
@@ -179,7 +174,7 @@ class ContactHelper:
             email3 = wd.find_element_by_name("email3").get_attribute("value")
             # homepage = wd.find_element_by_name("homepage").get_attribute("value")
 
-        return ContactProperties(firstname=firstname,lastname=lastname,id=id,
+            return ContactProperties(firstname=firstname,lastname=lastname,id=id,
                                  address =address,email=email,email2=email2,email3=email3,
                                  homephone=homephone,mobilephone=mobilephone,workphone=workphone,
                                  fax=fax, secondaryphone=secondaryphone,

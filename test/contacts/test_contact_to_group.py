@@ -33,7 +33,7 @@ def test_add_contact_to_group(db,app):
     group_id= random.choice(groups).id
     app.contact.add_contact_to_group(contact_id,group_id)
     # не работает assert
-   # assert db.get_contact_by_id(contact_id) == ORMFixture.get_contacts_in_group(group_id)
+    assert db.get_contact_by_id(contact_id) in  ORMFixture.get_contacts_in_group(Group(id=group_id))
 
 # def test_remove_contact_from_group(db,app):
 #     if len(db.get_group_list()) == 0:
