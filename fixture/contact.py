@@ -214,3 +214,24 @@ class ContactHelper:
         cell = row.find_elements_by_tag_name("td")[6]
         cell.find_element_by_tag_name("a").click()
 
+    def add_contact_to_group(self,id_contact,id_group):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(id_contact)
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_name("to_group")).select_by_value(id_group)
+        wd.find_element_by_xpath("//form//input[@name='add']").click()
+
+    def filter_contacts_in_groups(self,id_group):
+        wd = self.app.wd
+        self.app.open_home_page()
+        wd.find_element_by_name("to_group").click()
+
+    def delete_contact_from_group(self,id_contact,id_group):
+        wd = self.app.wd
+        self.app.open_home_page()
+        wd.find_element_by_name("group").click()
+        Select(wd.find_element_by_name("group")).select_by_value(id_group)
+        wd.find_element_by_css_selector("input[value='%s']"%id_contact).click()
+        wd.find_element_by_name("remove").click()
+
