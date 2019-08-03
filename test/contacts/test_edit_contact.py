@@ -43,42 +43,13 @@ def test_edit_contact(app,check_ui,db):
                                                       notes=" some new notes ver 2",
                                                       ayear="2002",amonth="February",aday ="8",
                                                       byear="2004",bmonth="June",bday="16")
-    #contact.id = old_contacts[0].id
+
     contact_to_edit = random.choice(old_contacts)
     app.contact.edit_contact_by_id(contact_to_edit.id,contact)
     new_contacts = db.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
-    # old_contacts[0] = contact
     if check_ui:
         assert sorted(app.contact.get_contact_list(), key=ContactProperties.id_or_max) == sorted(new_contacts,
                                                                                key=ContactProperties.id_or_max)
 
 
-# дорабоать пустые поля для ввода дат
-# def test_edit_contact_firstname(app):
-#     old_contacts = app.contact.get_contact_list()
-#     contact= ContactProperties(firstname="Brown",lastname="Brown New",
-#                       ayear="1999", amonth="February", aday="5",
-#                       byear="2001", bmonth="June", bday="17")
-#     contact.id = old_contacts[0].id
-#     index = randrange(len(old_contacts))
-#     app.contact.edit_contact_by_index(contact,index)
-#     new_contacts = app.contact.get_contact_list()
-#     assert len(old_contacts) == len(new_contacts)
-#     old_contacts[0] = contact
-#     assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts, key=ContactProperties.id_or_max)
-#
-#
-# def test_edit_first_contact(app):
-#     old_contacts = app.contact.get_contact_list()
-#     contact = ContactProperties(firstname="Brown", lastname="Brown New",
-#                                 ayear="1999", amonth="February", aday="5",
-#                                 byear="2001", bmonth="June", bday="17")
-#     contact.id = old_contacts[0].id
-#     index = randrange(len(old_contacts))
-#     app.contact.edit_contact_by_index(contact, 0)
-#     new_contacts = app.contact.get_contact_list()
-#     assert len(old_contacts) == len(new_contacts)
-#     old_contacts[0] = contact
-#     assert sorted(old_contacts, key=ContactProperties.id_or_max) == sorted(new_contacts,
-#                                                                     key=ContactProperties.id_or_max)
